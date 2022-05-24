@@ -1,0 +1,30 @@
+MAKEFLAGS = -sR
+.PHONY : all moutvmhd clean idectrnul crtidectr stratvm tranvdi moutraw
+
+all: moutraw tranvdi idectrnul crtidectr moutvmhd stratvm
+
+createvm:
+	VBoxManage createvm --name virginOS -register
+
+crtidectr:
+	VBoxManage storagectl virginOS --name "IDE" --add ide --controller PIIX4
+
+idectrnul:
+	VBoxManage storagectl virginOS --name "IDE" --remove 
+
+moutvmhd:
+	VBoxManage closemedium disk ../exckrnl/virginOS.vdi
+	VBoxManage storageattach virginOS --storagectl "IDE" --port 0 --device 0 --type hdd --medium ../exckrnl/virginOS.vdi
+	
+stratvm:
+	VBoxManage startvm virginOS
+
+tranvdi:
+	VBoxManage convertfromraw ../virginOS.img --format VDI ../exckrnl/virginOS.vdi
+
+moutraw:
+	sudo mount -o loop ../virginOS.img ../hdisk/
+	sudo cp ../release/virginos.eki ../hdisk/boot/
+	sudo umount ../hdisk/
+
+	
