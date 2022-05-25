@@ -54,7 +54,7 @@ You can view notes using VM VirtualBox for details , ------>  [https://aeneag.xy
 
 ## result
 
-<video src="./images/virginOS.mp4"></video>
+./images/virginOS.mp4
 
 
 ## Contract me
