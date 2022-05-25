@@ -29,10 +29,13 @@ note      [https://aeneag.xyz/virginOS](https://aeneag.xyz/virginOS) If you want
 - c_virginOS_30_end
 - c_virginOS_34_end
 - c_virginOS_41_end
+- virginOS.img  When you use it, put it in your project folder
 
 **images** directory saves the picture and mp4 files
 
 ## tutorial
+
+virginOS.img file import project folder.
 
 Download a project, enter the current project, and execute:
 
